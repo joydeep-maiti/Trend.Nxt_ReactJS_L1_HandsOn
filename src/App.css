@@ -20,3 +20,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+.table_class {
+  border-collapse: collapse;
+  
+}
+.table_class td, .table_class th {
+  border: 2px dashed green;
+  padding:5 10;
+}
+.table_class th{
+  background-color: cyan;
+}
+
+.table_class2 {
+  border-collapse: collapse;
+  
+}
+
+.table_class2 td {
+  border: 2px solid green;
+  padding:5 10;
+}
