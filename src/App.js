@@ -236,9 +236,9 @@ class App extends React.Component {
         {/*ReactJS-PropsValidation */}
         <h2>ReactJS-PropsValidation:Assignment1</h2>
         <div>
-          <p>{this.props.name}</p>
-          <p>{this.props.preferredCities[0]}</p>
-          <p>{this.props.age}</p>
+          <p>{this.props.name?this.props.name:"Name not found"}</p>
+          <p>{this.props.preferredCities?this.props.preferredCities[0]:"No cities found"}</p>
+          <p>{this.props.age?this.props.age:"Age not found"}</p>
         </div>
         <div style={{margin:30}}></div>
 
@@ -314,13 +314,18 @@ class App extends React.Component {
 App.propTypes = {
   name:PropTypes.string,
   preferredCities:PropTypes.array.isRequired,
-  age:PropTypes.number
+  age:PropTypes.number,
+  companyName:PropTypes.string,
+  companyLocation:PropTypes.string
+
 }
 
 App.defaultProps = {
   name:"Steve",
   preferredCities: ["Bangalore", "Chennai"] ,
-  age:18
+  age:18,
+  companyName:"wipro",
+  companyLocation:"Bangalore"
 }
 
 export default withRouter(App);
