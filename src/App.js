@@ -117,6 +117,7 @@ class App extends React.Component {
   }
 
   render(){
+    console.log("-----------------------------------------PROPS",this.props);
     const val =this.rows();
     let companyName = "WIPRO";
     let companyLocation = "BANGALORE";
@@ -236,9 +237,14 @@ class App extends React.Component {
         {/*ReactJS-PropsValidation */}
         <h2>ReactJS-PropsValidation:Assignment1</h2>
         <div>
-          <p>{this.props.name?this.props.name:"Name not found"}</p>
-          <p>{this.props.preferredCities?this.props.preferredCities[0]:"No cities found"}</p>
-          <p>{this.props.age?this.props.age:"Age not found"}</p>
+          <p>{this.props.name?typeof this.props.name == "string"?this.props.name:"Name is Incorrect":"Name not found"}</p>
+          <p>{Array.isArray(this.props.preferredCities)?this.props.preferredCities.length!=0?this.props.preferredCities[0]:"No cities found":"No cities found"}</p>
+          <p>{typeof this.props.age=="number"?this.props.age >=18 ?this.props.age <=60 ?this.props.age:"Age is incorrect":"Age is incorrect":"Age is incorrect"}</p>
+        </div>
+        <div>
+          {/* <p>{this.defaultProps.name?this.defaultProps.name:"Name not found"}</p>
+          <p>{this.defaultProps.preferredCities?this.defaultProps.preferredCities[0]:"No cities found"}</p>
+          <p>{this.defaultProps.age?this.defaultProps.age:"Age not found"}</p> */}
         </div>
         <div style={{margin:30}}></div>
 
@@ -312,20 +318,15 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  name:PropTypes.string,
-  preferredCities:PropTypes.array.isRequired,
-  age:PropTypes.number,
-  companyName:PropTypes.string,
-  companyLocation:PropTypes.string
-
+  name:PropTypes.string.isRequired,
+  preferredCities:PropTypes.array,
+  age:PropTypes.number
 }
 
 App.defaultProps = {
   name:"Steve",
   preferredCities: ["Bangalore", "Chennai"] ,
-  age:18,
-  companyName:"wipro",
-  companyLocation:"Bangalore"
+  age:18
 }
 
 export default withRouter(App);
